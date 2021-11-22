@@ -12,6 +12,8 @@ cd automotikz
 ./install --prepare
 ```
 
+## Optional
+
 #### Edit configuration files
 ```shell
 nano .env # Edit with your own values

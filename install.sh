@@ -4,7 +4,7 @@ if  [[ $1 = "--prepare" ]]; then
     echo "Copying environment file"
     cp .env.example .env
     crontab -l > tmpcron
-    echo "@reboot $(pwd)/install.sh --start" >> tmpcron
+    echo "@reboot $(pwd)/start.sh" >> tmpcron
     crontab tmpcron
     rm tmpcron
     
@@ -12,20 +12,7 @@ if  [[ $1 = "--prepare" ]]; then
     exit
 fi
 
-if  [[ $1 = "--start" ]]; then
-    echo "Loading environment variables"
-    export $(cat .env | xargs)
-    exit
-fi
-
-if [ -f .env ]; then
-    # Load Environment Variables
-    export $(cat .env | grep -v '#' | awk '/=/ {print $1}')
-fi
-
-@reboot /home/vivek/bin/installnetkit.sh
-
-# sudo apt-get update
-# sudo apt -y upgrade
-# sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip
-# pip3 install pyyaml requests
+sudo apt-get update
+sudo apt -y upgrade
+sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip
+pip3 install pyyaml requests Adafruit_DHT
