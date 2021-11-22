@@ -1,8 +1,20 @@
 # Domoticz and sensors automation
 ## Usage
+### Step 1 - Download
 ```shell
-git clone
-cd 
+git clone https://github.com/Eth3rnit3/automotikz.git
+```
+
+### Step 2 - Configure
+#### Generate configuration files
+```shell
+cd automotikz
+./install --prepare
+```
+
+#### Edit configuration files
+```shell
+nano .env # Edit with your own values
 ```
 ## Sensors
 ### DHT11, DHT22
