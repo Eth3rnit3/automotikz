@@ -1,0 +1,9 @@
+sensors:
+  - domoticz_idx: 1
+    name: outside
+    sensor: 22
+    pin: 13
+  - domoticz_idx: 2
+    name: inside
+    sensor: 22
+    pin: 6
