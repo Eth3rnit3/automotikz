@@ -9,11 +9,14 @@ git clone https://github.com/Eth3rnit3/automotikz.git
 #### Generate configuration files
 ```shell
 cd automotikz
-./install --prepare
+./install.sh --prepare
 ```
 
 ## Optional
-
+### Restart all related services
+```shell
+./install.sh --restart-all
+```
 #### Edit configuration files
 ```shell
 nano .env # Edit with your own values
