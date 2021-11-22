@@ -15,4 +15,4 @@ fi
 sudo apt-get update
 sudo apt -y upgrade
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev python3-pip
-pip3 install pyyaml requests Adafruit_DHT
+pip3 install pyyaml requests Adafruit_DHT lywsd03mmc

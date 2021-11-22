@@ -1,0 +1,4 @@
+sensors:
+  - domoticz_idx: 3
+    name: box
+    mac_address: A4:C1:38:31:11:76
