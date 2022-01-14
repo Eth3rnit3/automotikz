@@ -1,18 +1,31 @@
-#!/bin/sh
+#!/bin/bash
 
-if [ -f .env ]; then
-    echo "Loading environment variables"
-    export $(cat .env | xargs)
-else
-    echo "No environment file found, please run with --prepare option"
-fi
+help_me () {
+    echo "-h --help : Display this message"
+    echo "-i --install : Install necessary packages"
+    echo "no argument : Start automations"
+}
 
-if  [[ $1 = "--restart-all" ]]; then
-    echo "Restarting domoticz service"
-    sudo service domoticz restart
-    echo "Restarting bluetooth service"
-    sudo systemctl stop hciuart.service
-    sudo systemctl start hciuart.service
-fi
+install () {
+    pip3 install PyP100 lywsd03mmc
+}
 
-exit
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -i|--install) install; shift ;;
+        -h|--help) help_me ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    exit 1
+done
+
+set_environment () {
+    if [ -f .env ]
+    then
+        export $(cat .env | xargs)
+    fi
+}
+
+run_automations () {
+    nohup python3 -u /home/pi/domoticz/scripts/customs/main.py > /home/pi/domoticz/scripts/customs/automations.log &
+}
