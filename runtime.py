@@ -20,6 +20,6 @@ def write_pid_file():
   file.write(str(os.getpid()))
   file.close()
 
-def start(process: function):
+def start(process):
   write_pid_file()
   process()
