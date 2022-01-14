@@ -1,5 +1,6 @@
 import urllib.request
 import base64, os
+from colorama import Fore
 
 DOMOTICZ_HOST = os.environ.get('DOMOTICZ_HOST')
 DOMOTICZ_PORT = os.environ.get('DOMOTICZ_PORT')
@@ -31,9 +32,10 @@ def update_domoticz_sensor(values, idx_temp):
   url = '{base_url}&param=udevice&idx={idx_temp}&nvalue=0&svalue={temperature};{humidity};{val_comfort}&battery={battery}'.format(
     base_url=base_url, idx_temp=idx_temp, temperature=temperature, humidity=humidity, val_comfort=val_comfort, battery=battery
   )
-  print('UPDATE - Sensor {idx_temp} with values => {temperature}°C - {humidity}%'.format(
-    idx_temp=idx_temp, temperature=temperature, humidity=humidity
-  ))
+  phrase = 'UPDATE - Sensor {idx_temp} with values => '.format(idx_temp=idx_temp)
+  value = Fore.GREEN + '{temperature}°C - {humidity}%'.format(temperature=temperature, humidity=humidity)
+  print(phrase, value)
+  print(Fore.WHITE + '')
   domoticzrequest(url)
 
 def update_domoticz_switch(name: str, idx_switch: int, state: str):

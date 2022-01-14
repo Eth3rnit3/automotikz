@@ -1,5 +1,4 @@
 import datetime, os
-from automations import HEALTING_MAX_DAY
 from lywsd03mmc import Lywsd03mmcClient
 from PyP100 import PyP100
 
