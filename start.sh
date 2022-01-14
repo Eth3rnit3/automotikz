@@ -7,6 +7,10 @@ help_me () {
 }
 
 install () {
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+    sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget python3 pip3 -y
+    # export PATH=$PATH:/usr/bin
     pip3 install PyP100 lywsd03mmc
 }
 
@@ -29,3 +33,6 @@ set_environment () {
 run_automations () {
     nohup python3 -u /home/pi/domoticz/scripts/customs/main.py > /home/pi/domoticz/scripts/customs/automations.log &
 }
+
+set_environment
+run_automations
