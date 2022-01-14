@@ -26,6 +26,7 @@ done
 set_environment () {
     if [ -f .env ]
     then
+        # Work on command line but not with script
         export $(cat .env | xargs)
     fi
 }
