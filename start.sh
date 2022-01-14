@@ -31,7 +31,7 @@ set_environment () {
 }
 
 run_automations () {
-    nohup python3 -u /home/pi/domoticz/scripts/customs/main.py > /home/pi/domoticz/scripts/customs/automations.log &
+    nohup python3 -u $PWD/main.py > $PWD/automations.log &
 }
 
 set_environment
